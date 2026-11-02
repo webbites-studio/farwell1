@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>C.L. Farwell Construction, LLC | Brookline, NH</title>
+    <meta name="description"
+        content="C.L. Farwell Construction, LLC. Septic tanks and systems in Brookline, New Hampshire. Call 603-673-4786.">
+
+    <style>
+        :root {
+            --green: #192e27;
+            --gold: #e9b75f;
+            --cream: #f6f4ee;
+            --text: #23312a;
+            --muted: #66736a;
+            --border: #dce1d8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--text);
+            font-family: Arial, sans-serif;
+            line-height: 1.65;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 3px solid #b47c23;
+            outline-offset: 4px;
+        }
+
+        .container {
+            width: min(1150px, 90%);
+            margin: auto;
+        }
+
+        .topbar {
+            background: var(--green);
+            color: white;
+            text-align: center;
+            padding: 9px;
+            font-size: 13px;
+        }
+
+        .topbar a {
+            text-decoration: none;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: var(--cream);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navigation {
+            min-height: 84px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--green);
+            color: var(--gold);
+            display: grid;
+            place-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .logo strong {
+            display: block;
+            font-size: 19px;
+            line-height: 1.2;
+        }
+
+        .logo small {
+            font-size: 10px;
+            letter-spacing: 3px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 49px;
+            padding: 12px 23px;
+            background: var(--gold);
+            color: var(--green);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            border: 0;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            filter: brightness(1.08);
+        }
+
+        .button.dark {
+            background: var(--green);
+            color: white;
+        }
+
+        .button.outline {
+            background: transparent;
+            color: white;
+            border: 1px solid #7b8d80;
+        }
+
+        .menu-button {
+            display: none;
+            padding: 8px 13px;
+            border: 1px solid var(--border);
+            background: transparent;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hero {
+            background: var(--green);
+            color: white;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 65px;
+            padding: 95px 0;
+        }
+
+        .eyebrow {
+            display: block;
+            margin-bottom: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #8c652c;
+        }
+
+        .hero .eyebrow {
+            color: var(--gold);
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.12;
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: clamp(43px, 5.6vw, 73px);
+            letter-spacing: -3px;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            max-width: 510px;
+            color: #c5d0c7;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hero-art {
+            padding: 30px;
+            border: 1px solid #52695b;
+            border-radius: 20px;
+            background:
+                linear-gradient(#ffffff08 1px, transparent 1px),
+                linear-gradient(90deg, #ffffff08 1px, transparent 1px),
+                #233d31;
+            background-size: 25px 25px;
+        }
+
+        .hero-art svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .art-label {
+            padding-top: 20px;
+            border-top: 1px solid #52695b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .art-label strong {
+            font-size: 28px;
+            color: var(--gold);
+        }
+
+        .art-label small {
+            max-width: 115px;
+            color: #c5d0c7;
+        }
+
+        .facts {
+            background: #e9ece3;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding: 25px 0;
+        }
+
+        .fact small {
+            display: block;
+            color: var(--muted);
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .fact strong {
+            font-size: 15px;
+        }
+
+        section {
+            padding: 85px 0;
+        }
+
+        h2 {
+            font-size: clamp(32px, 4vw, 46px);
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+        }
+
+        .intro {
+            color: var(--muted);
+            max-width: 620px;
+            margin-bottom: 35px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+        }
+
+        .card-number {
+            display: block;
+            color: #967039;
+            margin-bottom: 35px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 22px;
+            margin-bottom: 16px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .card a {
+            font-size: 13px;
+            font-weight: bold;
+            text-underline-offset: 5px;
+        }
+
+        .about {
+            background: #e9ece3;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .year-card {
+            padding: 40px;
+            border-radius: 18px;
+            background: var(--green);
+            color: white;
+        }
+
+        .year-card strong {
+            display: block;
+            color: var(--gold);
+            font-size: 90px;
+            line-height: 1;
+            letter-spacing: -6px;
+            margin-bottom: 25px;
+        }
+
+        .year-card p {
+            color: #c5d0c7;
+            margin-bottom: 0;
+        }
+
+        .about-copy p {
+            color: var(--muted);
+        }
+
+        .contact {
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 65px;
+        }
+
+        .contact-detail {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-detail small {
+            display: block;
+            color: var(--muted);
+        }
+
+        .contact-detail a {
+            font-size: 21px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .map-link {
+            display: inline-block;
+            margin-top: 25px;
+            font-weight: bold;
+        }
+
+        form {
+            padding: 30px;
+            background: var(--cream);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .field {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            min-height: 47px;
+            background: white;
+            color: var(--text);
+            border: 1px solid #c7d0c5;
+            border-radius: 6px;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-note {
+            color: var(--muted);
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+
+        #formStatus {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        footer {
+            padding: 30px 0;
+            background: var(--green);
+            color: #c5d0c7;
+            font-size: 12px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        @media (max-width: 760px) {
+            .navigation {
+                min-height: 75px;
+            }
+
+            .logo strong {
+                font-size: 16px;
+            }
+
+            .logo small {
+                font-size: 9px;
+                letter-spacing: 2px;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                padding: 20px 5%;
+                background: var(--cream);
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                align-items: stretch;
+                gap: 18px;
+            }
+
+            nav.open {
+                display: flex;
+            }
+
+            .hero-grid,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-grid {
+                padding: 60px 0;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero-art {
+                max-width: 470px;
+                width: 100%;
+            }
+
+            .facts-grid,
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .facts-grid {
+                gap: 15px;
+            }
+
+            .fact {
+                padding-bottom: 12px;
+                border-bottom: 1px solid #cdd5c8;
+            }
+
+            .fact:last-child {
+                border: 0;
+                padding-bottom: 0;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .card-number {
+                margin-bottom: 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            form {
+                padding: 23px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topbar">
+        <a href="tel:+16036734786">
+            Brookline, New Hampshire · Call (603) 673-4786
+        </a>
+    </div>
+
+    <header>
+        <div class="container navigation">
+            <a href="#" class="logo" aria-label="C.L. Farwell Construction home">
+                <span class="logo-icon" aria-hidden="true">F</span>
+                <span>
+                    <strong>C.L. FARWELL</strong>
+                    <small>CONSTRUCTION, LLC</small>
+                </span>
+            </a>
+
+            <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="mainNav"
+                type="button">Menu</button>
+
+            <nav id="mainNav" aria-label="Main navigation">
+                <a href="#services">Septic Systems</a>
+                <a href="#about">Our Company</a>
+                <a href="#contact">Contact</a>
+                <a href="tel:+16036734786" class="button dark">Call Us ↗</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <span class="eyebrow">C.L. Farwell Construction, LLC</span>
+
+                    <h1>Local experience.<br><span>Built on solid ground.</span></h1>
+
+                    <p>
+                        Septic tanks and systems in Brookline, New Hampshire.
+                        Talk with our team about your property, your plans,
+                        and the next steps for your project.
+                    </p>
+
+                    <div class="actions">
+                        <a class="button" href="#contact">Discuss Your Project ↗</a>
+                        <a class="button outline" href="tel:+16036734786">
+                            (603) 673-4786
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-art">
+                    <svg viewBox="0 0 440 280" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="350" cy="60" r="35" fill="#e9b75f" opacity=".15" />
+                        <path d="M15 220H425" stroke="#819787" stroke-width="2" />
+                        <path d="M15 244H425M15 265H425" stroke="#819787" stroke-dasharray="5 9" opacity=".4" />
+
+                        <rect x="100" y="180" width="170" height="32" rx="16" fill="#192e27" stroke="#e9b75f"
+                            stroke-width="3" />
+
+                        <g fill="#e9b75f">
+                            <circle cx="125" cy="196" r="8" />
+                            <circle cx="155" cy="196" r="8" />
+                            <circle cx="185" cy="196" r="8" />
+                            <circle cx="215" cy="196" r="8" />
+                            <circle cx="245" cy="196" r="8" />
+                            <path d="M125 177V143H220L245 177Z" />
+                            <path d="M153 142V92H207L225 142Z" />
+                            <path d="M230 145L287 65L307 73L253 158Z" />
+                            <path d="M286 66L304 54L362 140L346 153Z" />
+                            <path d="M346 144L370 138L392 185Q366 203 344 183Z" />
+                        </g>
+
+                        <path d="M164 131V103H198L210 131Z" fill="#233d31" />
+                        <path d="M238 145L290 83M306 77L347 138" stroke="#f6f4ee" stroke-width="4"
+                            stroke-linecap="round" />
+                        <circle cx="296" cy="69" r="9" fill="#f6f4ee" />
+                    </svg>
+
+                    <div class="art-label">
+                        <strong>Since 2004</strong>
+                        <small>Registered in New Hampshire</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="facts">
+            <div class="container facts-grid">
+                <div class="fact">
+                    <small>Our Focus</small>
+                    <strong>Septic Tanks &amp; Systems</strong>
+                </div>
+                <div class="fact">
+                    <small>Our Location</small>
+                    <strong>Brookline, New Hampshire</strong>
+                </div>
+                <div class="fact">
+                    <small>Get in Touch</small>
+                    <strong>(603) 673-4786</strong>
+                </div>
+            </div>
+        </div>
+
+        <section id="services">
+            <div class="container">
+                <span class="eyebrow">Septic Tanks &amp; Systems</span>
+                <h2>Your project starts<br>with a conversation.</h2>
+
+                <p class="intro">
+                    Planning a project or have questions about an existing system?
+                    Tell us what your property needs so we can discuss the scope
+                    and confirm how we can help.
+                </p>
+
+                <div class="cards">
+                    <article class="card">
+                        <span class="card-number">01 / PLAN</span>
+                        <h3>Planning a septic project?</h3>
+                        <p>
+                            Share your property location, project goals,
+                            and any plans you already have.
+                        </p>
+                        <a href="#contact">Discuss Your Project ↗</a>
+                    </article>
+
+                    <article class="card">
+                        <span class="card-number">02 / DISCUSS</span>
+                        <h3>Questions about your system?</h3>
+                        <p>
+                            Describe your existing septic tank or system
+                            and ask about available services.
+                        </p>
+                        <a href="tel:+16036734786">Speak With Our Team ↗</a>
+                    </article>
+
+                    <article class="card">
+                        <span class="card-number">03 / PREPARE</span>
+                        <h3>Ready for the next step?</h3>
+                        <p>
+                            Tell us about your preferred timing and the work
+                            you have in mind.
+                        </p>
+                        <a href="#contact">Start an Inquiry ↗</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container about-grid">
+                <div class="year-card">
+                    <strong>2004</strong>
+                    <h3>A Brookline business.</h3>
+                    <p>
+                        C.L. Farwell Construction, LLC was registered in
+                        New Hampshire on December 21, 2004.
+                    </p>
+                </div>
+
+                <div class="about-copy">
+                    <span class="eyebrow">Our Company</span>
+                    <h2>Local roots.<br>A practical approach.</h2>
+                    <p>
+                        C.L. Farwell Construction, LLC is based in Brookline,
+                        New Hampshire, with a business focus on septic tanks
+                        and systems.
+                    </p>
+                    <p>
+                        Every property has its own requirements. A direct
+                        conversation helps establish what your project involves
+                        and the information needed to move forward.
+                    </p>
+                    <strong>104 A Route 13 · Brookline, NH 03033</strong>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container contact-grid">
+                <div>
+                    <span class="eyebrow">Contact C.L. Farwell</span>
+                    <h2>Let’s talk about<br>your property.</h2>
+                    <p class="intro">
+                        Contact us to discuss your septic project,
+                        service availability, and next steps.
+                    </p>
+
+                    <div class="contact-detail">
+                        <small>Call Us</small>
+                        <a href="tel:+16036734786">(603) 673-4786</a>
+                    </div>
+
+                    <div class="contact-detail">
+                        <small>Business Address</small>
+                        <strong>104 A Route 13<br>Brookline, NH 03033</strong>
+                    </div>
+
+                    <a class="map-link"
+                        href="https://www.google.com/maps/search/?api=1&query=104+A+Route+13+Brookline+NH+03033"
+                        target="_blank" rel="noopener noreferrer">View on Google Maps ↗</a>
+                </div>
+
+                <form id="projectForm">
+                    <h3>Project Inquiry</h3>
+
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="name">Full Name *</label>
+                            <input id="name" name="name" autocomplete="name" maxlength="120" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="phone">Phone *</label>
+                            <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email *</label>
+                        <input id="email" name="email" type="email" autocomplete="email" maxlength="200" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="location">Project Address or Town *</label>
+                        <input id="location" name="location" maxlength="250" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="type">Inquiry Type</label>
+                        <select id="type" name="type">
+                            <option>New septic project</option>
+                            <option>Existing septic system</option>
+                            <option>General question</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="message">Project Details *</label>
+                        <textarea id="message" name="message" maxlength="5000"
+                            placeholder="Tell us about your project and preferred timing." required></textarea>
+                    </div>
+
+                    <button class="button dark" type="submit">
+                        Prepare Email Inquiry ↗
+                    </button>
+
+                    <p class="form-note">
+                        Opens an email draft for you to review and send.
+                        You may also contact us by phone.
+                    </p>
+
+                    <p id="formStatus" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <span>
+                © <span id="year"></span> C.L. Farwell Construction, LLC.
+            </span>
+            <span>Brookline, New Hampshire · (603) 673-4786</span>
+        </div>
+    </footer>
+
+    <script>
+        // Add the company's verified email address here before publishing.
+        const BUSINESS_EMAIL = "";
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        const menuButton = document.getElementById("menuButton");
+        const mainNav = document.getElementById("mainNav");
+
+        function closeMenu() {
+            mainNav.classList.remove("open");
+            menuButton.setAttribute("aria-expanded", "false");
+        }
+
+        menuButton.addEventListener("click", function () {
+            const open = mainNav.classList.toggle("open");
+            menuButton.setAttribute("aria-expanded", String(open));
+        });
+
+        mainNav.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") closeMenu();
+        });
+
+        document.getElementById("projectForm").addEventListener(
+            "submit",
+            function (event) {
+                event.preventDefault();
+
+                const form = event.currentTarget;
+                const status = document.getElementById("formStatus");
+
+                if (!form.reportValidity()) return;
+
+                if (!BUSINESS_EMAIL) {
+                    status.textContent =
+                        "Email inquiries are not available yet. Please call (603) 673-4786.";
+                    return;
+                }
+
+                const data = new FormData(form);
+                const value = key => String(data.get(key) || "").trim();
+
+                const body = [
+                    "Website Project Inquiry",
+                    "",
+                    "Name: " + value("name"),
+                    "Phone: " + value("phone"),
+                    "Email: " + value("email"),
+                    "Project Location: " + value("location"),
+                    "Inquiry Type: " + value("type"),
+                    "",
+                    "Project Details:",
+                    value("message")
+                ].join("\n");
+
+                window.location.href =
+                    "mailto:" + BUSINESS_EMAIL +
+                    "?subject=" + encodeURIComponent("Website Project Inquiry") +
+                    "&body=" + encodeURIComponent(body);
+
+                status.textContent =
+                    "Review and send the draft in your email application to complete your inquiry.";
+            }
+        );
+    </script>
+</body>
+
+</html>
